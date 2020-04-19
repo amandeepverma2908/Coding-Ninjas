@@ -1,0 +1,22 @@
+import java.util.*;
+public class Main
+{
+    static boolean equal(int m)
+    {
+        if((m%11)==1)
+            return true;
+        else{
+            return false;
+        }
+    }
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int fruits=sc.nextInt(),full=0;
+	    while(!equal(fruits))
+	    {
+	        fruits*=2;
+	        full+=1;
+	    }
+	    System.out.print(full+" "+fruits);
+	}
+}
