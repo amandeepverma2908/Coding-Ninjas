@@ -1,0 +1,20 @@
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int x1=sc.nextInt(),y1=sc.nextInt(),x2=sc.nextInt(),y2=sc.nextInt();
+	    int x3=sc.nextInt(),y3=sc.nextInt(),x4=sc.nextInt(),y4=sc.nextInt();
+	    int a1=(x2-x1)*(y2-y1);
+	    int a2=(x4-x3)*(y4-y3);
+	    int aintersection=0;//For finding out the intersection part
+	    int left=Math.max(x1,x3);//to find out the leftmost side we have to go for maximum of both the areas left mostside
+	    int right=Math.min(x2,x4);
+	    int bottom=Math.max(y1,y3);
+	    int top=Math.min(y2,y4);
+	    if((left<right)&&(bottom<top))
+	        aintersection=(right-left)*(top-bottom);
+	    System.out.print(a1+a2-aintersection);
+	}
+}
