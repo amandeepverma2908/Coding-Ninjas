@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        System.out.println("1");
+        for(int i=1;i<m;i++)
+        {
+            for(int j=0;j<=i;j++)
+            {
+                if(j==0||j==i)
+                {
+                    System.out.print("1");
+                }
+                else
+                {
+                    System.out.print("2");
+                }
+            }
+            System.out.println();
+        }
+	}
+}
