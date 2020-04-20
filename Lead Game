@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    int m=sc.nextInt(),cs1=0,cs2=0,max=0;
+	    int ch=1;
+	    for(int i=0;i<m;i++)
+	    {
+	        int a=sc.nextInt(),b=sc.nextInt();
+	        cs1+=a;
+	        cs2+=b;
+	        if(a<b&&max<(b-a))
+	        {
+	            max=b-a;
+	            ch=2;
+	        }
+	        else if(b<a&&max<(a-b))
+	        {
+	            max=a-b;
+	            ch=1;
+	        }
+	    }
+	    System.out.println("Total of P1 is:"+cs1+" and Total of P2 is:"+cs2);
+	    System.out.println("Biggest single lead is:"+max+" by "+ch);
+	}
+}
