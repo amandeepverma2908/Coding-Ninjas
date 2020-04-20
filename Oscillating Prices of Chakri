@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n],k=0;
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                int t=arr[j]-arr[i];
+                if(k<t)
+                {
+                    k=t;
+                }
+            }
+        }
+        System.out.println(k);
+	}
+
+}
