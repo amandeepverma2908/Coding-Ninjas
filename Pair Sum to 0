@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Solution {
+	public static void PairSum(int[] input, int size) {
+		
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Print the desired output and don't return anything.
+	 	 * Taking input is handled automatically.
+		 */
+        int l=input.length;
+        Arrays.sort(input);
+        for(int i=0;i<l;i++)
+        {
+            for(int j=i+1;j<l;j++)
+            {
+                if(input[i]+input[j]==0)
+                {
+                    System.out.println(input[i]+" "+input[j]);
+                }
+            }
+        }
+	}
+}
