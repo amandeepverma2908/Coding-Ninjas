@@ -1,0 +1,59 @@
+import java.util.*;
+public class Main
+{
+    static boolean cows(int c,int arr[],int n,int distance)
+    {
+        int p=0;
+        int count=1;
+        int pos=arr[0];
+        for(int i=1;i<n;i++)
+        {
+            if(arr[i]-pos>=distance)
+            {
+                pos=arr[i];
+                count++;
+            }
+            if(count==c)
+            {
+                p=1;
+                return true;
+            }
+        }
+        if(p==0)
+            return false;
+        else
+            return true;
+    }
+	public static void main(String[] args)
+	{
+	    Scanner sc=new Scanner(System.in);
+	    int w=sc.nextInt();
+	    while(w-->0)
+	    {
+	        int n=sc.nextInt();
+	        int c=sc.nextInt();
+	        int arr[]=new int[n];
+	        for(int i=0;i<n;i++)
+	        {
+	            arr[i]=sc.nextInt();
+	        }
+	        Arrays.sort(arr);
+	        int start=0;
+	        int end=arr[n-1]-arr[0];
+	        int ans=-1;
+	        while(start<=end)
+	        {
+	            int mid=start+(end-start)/2;
+	            if(cows(c,arr,n,mid)==true)
+	            {
+	                ans=mid;
+	                start=mid+1;
+	            }
+	            else{
+	                end=mid-1;
+	            }
+	        }
+	        System.out.println(ans);
+	    }
+	}
+}
