@@ -1,0 +1,46 @@
+import java.util.*;
+public class Main {
+    static int func(int[] arr,int t)
+	{
+        int k=0,p=0;
+    	for(;p<arr.length;p++)
+        {
+            int v=arr[p]-(t++);
+            if(v<=0)
+            {
+                k=1;
+                break;
+            }
+        }
+        if(k==1)
+            return p;
+        else
+            return func(arr,t);
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n=sc.nextInt(),t=0,ans=0,c=0;
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int i=0;
+        int a[]=new int[n];
+        for(;i<n;i++)
+        {
+            int v=arr[i]-(t++);
+            c++;
+            if(v<=0)
+            {
+                ans=i;
+                break;
+            }
+            if(c==n-1)
+            {
+                ans=func(arr,t);
+            }
+        }
+        System.out.println(ans+1);
+	}
+}
