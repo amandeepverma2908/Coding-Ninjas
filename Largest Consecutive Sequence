@@ -1,0 +1,33 @@
+import java.util.*;
+public class Solution {
+	public static ArrayList<Integer> longestConsecutiveIncreasingSequence(int[] arr) {
+		//Your Code goes here
+        int t=arr.length,ans=0,st=0,et=0;
+        HashSet<Integer> s=new HashSet<Integer>();
+        for(int i=0;i<t;i++)
+        {
+            s.add(arr[i]);
+        }
+        for(int i=0;i<t;i++)
+        {
+            if(!s.contains(arr[i]-1))
+            {
+                int j=arr[i];
+                while(s.contains(j))
+                    j++;
+                if(ans<j-arr[i])
+                {
+                    ans=j-arr[i];
+                    st=arr[i];
+                    et=j;
+                }
+            }
+        }
+        ArrayList<Integer> l=new ArrayList<Integer>();
+        for(int i=st;i<et;i++)
+        {
+            l.add(i);
+        }
+        return l;
+	}
+}
