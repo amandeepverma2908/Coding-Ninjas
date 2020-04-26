@@ -1,0 +1,33 @@
+import java.util.*;
+public class Main
+{
+    public static String[] subsequences(String str)
+    {
+        if(str.length()==0)
+        {
+            String ans[]={""};
+            return ans;
+        }
+        int k=0;
+        String small[]=subsequences(str.substring(1));//breaking the code to pieces
+        String ans[]=new String[2*small.length];
+        for(int i=0;i<small.length;i++)
+        {
+            ans[k++]=small[i];
+        }
+        for(int i=0;i<small.length;i++)
+        {
+            ans[k++]=str.charAt(0)+small[i];
+        }
+        return ans;
+    }
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s=sc.next();
+		String ans[]=subsequences(s);
+		for(int i=0;i<ans.length;i++)
+	    {
+	        System.out.println(ans[i]);
+	    }
+	}
+}
