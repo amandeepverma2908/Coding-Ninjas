@@ -1,0 +1,43 @@
+import java.util.*;
+public class Main {
+
+	// Return a string array that contains all the possible strings
+    static String[] dir={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    public static String[] keypad(int n){
+        int l=1;
+        String n1=Integer.toString(n);
+        String ans[]=print(n1,l);
+        return ans;
+    }
+	static String[] print(String str,int l)
+    {
+        String[] output={""};
+        if(str.length()==0||str.equals(1))
+            return output;
+        int k=0,t=0;
+        char ch=str.charAt(0);
+        String[] small=print(str.substring(1),l);
+        String codes=dir[ch-'0'];
+        l=codes.length()*small.length;
+        String[] ans=new String[l];
+        String code=dir[ch-'0'];
+        for(int i=0;i<code.length();i++)
+        {
+            for(int j=0;j<small.length;j++)
+            {
+            	ans[k++]=code.charAt(i)+small[j];
+            }
+        }
+        return ans;
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String[] arr=keypad(n);
+        for(int i=0;i<arr.length;i++)
+        {
+            System.out.println(arr[i]);
+        }
+    }
+}
