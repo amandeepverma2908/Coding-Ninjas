@@ -1,1 +1,1 @@
-# this is a practiced questions of my own of coding
+# these are practiced questions of competitive programming
